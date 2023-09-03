@@ -1,8 +1,10 @@
 from manim import *
 from manim_presentation import Slide
-import src.constants.colors as cols
+from src.constants import colors
 
-config.background_color = cols.background
+
+theme = colors.DarkTheme()
+config.background_color = theme.Background().color
 
 
 class Scene1(Slide):
