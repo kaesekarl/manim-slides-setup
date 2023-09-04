@@ -38,6 +38,3 @@ class Vertex:
             color = self.label_color
 
         return self.vertex_label.label(string, color=color).copy().shift(pos).scale(scale)
-
-    def vertex(self, pos: np.ndarray = None, scale=1, label_pos=ORIGIN):
-        return VGroup(self.node(ORIGIN, scale), self.label(scale=scale).shift(label_pos)).move_to(pos).copy()
