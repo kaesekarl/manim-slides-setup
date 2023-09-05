@@ -4,7 +4,7 @@ from manim.utils.color import *
 from dataclasses import dataclass
 
 
-dark_blue = "2A2E34"  # ZUT_BLUE_DARK
+dark_blue = "#2A2E34"  # ZUT_BLUE_DARK
 light_blue = "#6DADDF"
 tan = "#f3eee1"  # ZUT_TAN
 
@@ -15,17 +15,19 @@ background = dark_blue
 accent_1 = light_blue
 
 
+@dataclass
 class DarkTheme:
+
+    @dataclass
     class Text:
-        def __init__(self):
-            self.color = text
-            self.muted_color = text_muted
-            self.font = "Sans"
-            self.size = 0.5
-            self.line_spacing = 0.2
+        color = WHITE
+        muted_color = text_muted
+        font = "Sans"
+        size = 0.5
+        line_spacing = 0.2
 
 
+    @dataclass
     class Background:
-        def __init__(self):
-            self.color = background
+        color = background
 
