@@ -1,9 +1,9 @@
 from manim import *
-from src.text_elements.Label import Label, TexLabel
-import src.constants.colors as cols
+from src.text_elements.Label import TexLabel
+import src.designs.themes.CURRENT as theme
 from copy import copy
 
-theme = cols.DarkTheme()
+theme = theme.APPLIED_THEME
 
 
 class VertexLabel(TexLabel):

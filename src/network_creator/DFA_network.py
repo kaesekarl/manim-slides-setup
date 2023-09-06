@@ -1,10 +1,10 @@
-from src.network_creator.Vertex import Vertex, VertexLabel
+from src.network_creator.Vertex import Vertex
 from src.network_creator.Edge import Edge, EdgeLabel
 from manim import *
 from copy import copy
-from src.constants.colors import DarkTheme
+import src.designs.themes.CURRENT as current
 
-theme = DarkTheme()
+theme = current.APPLIED_THEME
 
 
 class Start_State(Vertex):
