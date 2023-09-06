@@ -133,3 +133,15 @@ class Graph_Creator:
             graph.add(edge.edge())
             graph.add(edge.label())
         return graph
+
+    def create_vertices(self, vertex_scale=None) -> VGroup:
+        graph = VGroup()
+        for vertex in self.vertices.values():
+            if vertex_scale is not None:
+                graph.add(vertex.node(vertex_scale=vertex_scale))
+            else:
+                graph.add(vertex.node())
+            graph.add(vertex.label())
+        return graph
+
+
