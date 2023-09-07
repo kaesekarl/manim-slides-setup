@@ -8,13 +8,14 @@ import src.designs.layouts.kazut as kazut
 theme = APPLIED_THEME
 layout = kazut
 
-config.background_color = theme.Background().color
+config.background_color = theme.Background.color
 
 
 class Scene1(Slide):
     def construct(self):
-        test = layout.TitledSlide("Test").create()
-        self. play(Create(test))
+        cover = layout.CoverSlide("Test Titel", "Test Subtitel", "Ur mama").create()
+        self.play(Create(cover))
+        self.wait(1)
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):
