@@ -19,9 +19,12 @@ class TitledSlide:
         return elements
 
 
+
+
+
 class CoverSlide:
     def __init__(self, title: str, subtitle: str, author: str):
-        self.theme = theme.CoverSlide
+        self.theme = theme.Slide.Cover
         self.title = title
         self.subtitle = subtitle
         self.author = author
@@ -37,3 +40,9 @@ class CoverSlide:
         elements.add(Text(self.author, weight=self.theme.author_weight, font=self.theme.author_font, color=self.theme.author_color).scale(self.theme.author_size).
                      align_to(elements[2], DOWN + LEFT).shift(DOWN * 0.66))  # Author
         return elements
+
+
+
+
+
+

@@ -9,7 +9,6 @@ class Header_Seperator:
     def __init__(self):
         self.theme = theme.Slide.Header.Seperator
 
-
     def create(self):
         seperator = DashedLine(
                 start=constants.SLIDE_WIDTH/2 * LEFT,
