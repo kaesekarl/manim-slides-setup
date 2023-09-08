@@ -1,5 +1,6 @@
 from manim import *
 from src.slide_elements.header_elements import Header_Seperator
+from src.slide_elements.footer_elements import Slide_Counter, Footer_Separator
 from src.text_elements.titles import SlideTitle
 from src.text_elements.bulletpoints import Bulletpoint_Creator
 from src.designs.themes.CURRENT import APPLIED_THEME

@@ -3,6 +3,7 @@ from manim_presentation import Slide
 from src.designs.themes.CURRENT import APPLIED_THEME
 import src.network_creator.DFA_network as DFA
 import src.designs.layouts.kazut as kazut
+import src.slide_elements.footer_elements as footer_elements
 
 
 theme = APPLIED_THEME
@@ -13,9 +14,13 @@ config.background_color = theme.Background.color
 
 class Scene1(Slide):
     def construct(self):
-        cover = layout.CoverSlide("Test Titel", "Test Subtitel", "Ur mama").create()
-        self.play(Create(cover))
-        self.wait(1)
+        page = layout.TitledSlide("Test").create()
+        page2 = footer_elements.Slide_Counter(1, 10, True).create()
+
+        self.play(Create(page), Create(page2))
+        self.wait(2)
+
+
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):

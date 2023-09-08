@@ -70,6 +70,14 @@ class DarkTheme:
                 dashed_ratio = 0.5
                 dash_length = 0.07
 
+            @dataclass
+            class Counter:
+                color = text_muted
+                font = "Sans"
+                size = 0.5
+                weight = "NORMAL"
+                buff = 0.3
+
         @dataclass
         class Title:
             color = WHITE
