@@ -14,10 +14,8 @@ config.background_color = theme.Background.color
 
 class Scene1(Slide):
     def construct(self):
-        page = layout.TitledSlide("Test").create()
-        page2 = footer_elements.Slide_Counter(1, 10, True).create()
-
-        self.play(Create(page), Create(page2))
+        page = layout.
+        self.play(Create(page))
         self.wait(2)
 
 

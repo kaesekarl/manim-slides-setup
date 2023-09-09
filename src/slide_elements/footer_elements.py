@@ -7,7 +7,7 @@ theme = APPLIED_THEME
 
 class Footer_Separator:
     def __init__(self):
-        self.theme = theme.Slide.Footer.Separator
+        self.theme = theme.Slide.Footer.Seperator
 
     def create(self):
         seperator = DashedLine(

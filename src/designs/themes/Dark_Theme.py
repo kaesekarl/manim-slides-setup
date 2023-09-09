@@ -54,10 +54,18 @@ class DarkTheme:
             @dataclass
             class Seperator:
                 color = accent_1
-                buff = 1.0
+                buff = 0.8
                 stroke_width = 2
                 dashed_ratio = 0.5
                 dash_length = 0.07
+
+            @dataclass
+            class Title:
+                color = WHITE
+                font = "Sans"
+                size = 0.65
+                line_spacing = 0.2
+                buff = 0.35
 
         @dataclass
         class Footer:
@@ -65,7 +73,7 @@ class DarkTheme:
             @dataclass
             class Seperator:
                 color = accent_1
-                buff = 1.0
+                buff = 0.8
                 stroke_width = 2
                 dashed_ratio = 0.5
                 dash_length = 0.07
@@ -78,12 +86,7 @@ class DarkTheme:
                 weight = "NORMAL"
                 buff = 0.3
 
-        @dataclass
-        class Title:
-            color = WHITE
-            font = "Sans"
-            size = 0.65
-            line_spacing = 0.2
+
 
         @dataclass
         class Cover:

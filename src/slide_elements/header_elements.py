@@ -21,5 +21,15 @@ class Header_Seperator:
         return seperator
 
 
+class SlideTitle:
+    def __init__(self, text=None):
+        self.text = text
+        self.theme = theme.Slide.Header.Title
 
+    def create(self, title: str = None):
+        if title is None:
+            title = self.text
+        title = Text(title, color=self.theme.color, font=self.theme.font)
+        title = title.scale(self.theme.size).to_corner(UL, buff=self.theme.buff)
+        return title
 
