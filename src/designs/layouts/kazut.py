@@ -4,11 +4,11 @@ from src.slide_elements.footer_elements import Slide_Counter, Footer_Separator
 from src.designs.themes.CURRENT import APPLIED_THEME
 
 _theme = APPLIED_THEME
-__all__ = ["TitledSlide",
-           "CoverSlide"]
+__all__ = ["Kazut_TitledSlide",
+           "Kazut_CoverSlide"]
 
 
-class TitledSlide:
+class Kazut_TitledSlide:
 
     def __init__(self, title: str):
         self.header_seperator = Header_Seperator()
@@ -18,7 +18,7 @@ class TitledSlide:
         elements = VGroup()
         elements.add(self.header_seperator.create())
         elements.add(self.title.create())
-        return elements
+        return elements.set_z_index(10)
 
     class WithFooter:
 
@@ -34,10 +34,10 @@ class TitledSlide:
             elements.add(self.title.create())
             elements.add(self.footer_seperator.create())
             elements.add(self.slide_counter.create())
-            return elements
+            return elements.set_z_index(10)
 
 
-class CoverSlide:
+class Kazut_CoverSlide:
 
     def __init__(self, title: str, subtitle: str, author: str):
         self.theme = _theme.Slide.Cover
@@ -56,4 +56,4 @@ class CoverSlide:
         elements.add(
             Text(self.author, weight=self.theme.author_weight, font=self.theme.author_font, color=self.theme.author_color).scale(self.theme.author_size).
             align_to(elements[2], DOWN + LEFT).shift(DOWN * 0.66))  # Author
-        return elements
+        return elements.set_z_index(10)
