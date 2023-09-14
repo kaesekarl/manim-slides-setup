@@ -17,12 +17,26 @@ config.background_color = theme.Background.color
 class Scene1(Slide):
     def construct(self):
         page = Kazut_TitledSlide.WithFooter("DFA", 2, 3, True).create()
-        self.play(Create(page))
+        self.add(page)
         self.wait(1)
 
         background = Rectangle(width=SLIDE_WIDTH, height=SLIDE_HEIGHT, color=BLACK, fill_opacity=1)
-        self.play(FadeIn(background), page.animate.scale(1.5))
+        # self.play(FadeIn(background), page.animate.scale(1.5))
         self.wait(1)
+
+        verts = dict(
+                A=DFA.State("A", LEFT * 2),
+                B=DFA.State("B", RIGHT * 2),
+                )
+        edges = dict(
+                A_B=DFA.CurvedEdge(verts["A"], verts["B"], "a"),
+                B_A=DFA.CurvedEdge(verts["B"], verts["A"], "b"),
+                A_A=DFA.Loop(verts["A"], "a"),
+                )
+        g = DFA.Graph_Creator(verts, edges).create(0.8)
+        self.play(FadeIn(g))
+        self.wait(1)
+
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):

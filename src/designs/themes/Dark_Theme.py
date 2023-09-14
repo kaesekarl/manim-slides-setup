@@ -56,8 +56,8 @@ class DarkTheme:
                 color = accent_1
                 buff = 0.8
                 stroke_width = 2
-                dashed_ratio = 0.5
-                dash_length = 0.07
+                # dashed_ratio = 0.5
+                # dash_length = 0.07
 
             @dataclass
             class Title:
@@ -75,8 +75,8 @@ class DarkTheme:
                 color = accent_1
                 buff = 0.8
                 stroke_width = 2
-                dashed_ratio = 0.5
-                dash_length = 0.07
+                # dashed_ratio = 0.5
+                # dash_length = 0.07
 
             @dataclass
             class Counter:
@@ -84,7 +84,7 @@ class DarkTheme:
                 font = "Sans"
                 size = 0.5
                 weight = "NORMAL"
-                buff = 0.3
+                buff = 0.25
 
 
 

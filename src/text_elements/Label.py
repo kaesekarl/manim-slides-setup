@@ -1,4 +1,5 @@
 from manim import *
+from src.text_elements.tex_elements import tex_template
 
 
 class Label:
@@ -35,7 +36,7 @@ class TexLabel(Label):
         if color is None:
             color = self.color
 
-        return MathTex(string, color=self.color).move_to(pos).scale(self.size)
+        return MathTex(string, color=self.color, tex_template=tex_template).move_to(pos).scale(self.size)
 
 
 

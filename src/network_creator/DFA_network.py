@@ -8,7 +8,7 @@ theme = current.APPLIED_THEME
 
 
 class Start_State(Vertex):
-    def __init__(self, name, color=theme.Text.color, variety=None, position=ORIGIN, scale=1, label_color=None):
+    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
         super().__init__(name, color, variety, position, scale, label_color)
         self.label_pos = ORIGIN
         self.label_color = color
@@ -17,7 +17,7 @@ class Start_State(Vertex):
 
 
 class Accept_State(Vertex):
-    def __init__(self, name, color=theme.Text.color, variety=None, position=ORIGIN, scale=1, label_color=None):
+    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
         super().__init__(name, color, variety, position, scale, label_color)
         self.label_pos = ORIGIN
         self.label_color = color
@@ -26,7 +26,7 @@ class Accept_State(Vertex):
 
 
 class State(Vertex):
-    def __init__(self, name, color=theme.Text.color, variety=None, position=ORIGIN, scale=1, label_color=None):
+    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
         super().__init__(name, color, variety, position, scale, label_color)
         self.label_pos = ORIGIN
         self.label_color = color
@@ -43,7 +43,7 @@ class DirectEdge(Edge):
 
 
 class CurvedEdge(Edge):
-    def __init__(self, start: Vertex, end: Vertex, name: str, arc=TAU/6,color=theme.Text.color):
+    def __init__(self, start: Vertex, end: Vertex, name: str, arc=TAU/6, color=theme.Text.color):
         super().__init__(start, end, name, color=color, edge_type=CurvedArrow)
         self.start = start
         self.end = end

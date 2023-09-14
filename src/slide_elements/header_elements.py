@@ -10,12 +10,10 @@ class Header_Seperator:
         self.theme = theme.Slide.Header.Seperator
 
     def create(self):
-        seperator = DashedLine(
+        seperator = Line(
                 start=constants.SLIDE_WIDTH/2 * LEFT,
                 end=constants.SLIDE_WIDTH/2 * RIGHT,
                 color=self.theme.color,
-                dashed_ratio=self.theme.dashed_ratio,
-                dash_length=self.theme.dash_length,
                 )
         seperator = seperator.to_edge(UP, buff=self.theme.buff)
         return seperator
