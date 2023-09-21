@@ -1,4 +1,4 @@
-from src.network_creator.Vertex import Vertex
+from src.DFA_Creator.Vertex import Vertex
 from src.text_elements.Label import TexLabel
 from manim import *
 from copy import copy

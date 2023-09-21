@@ -1,24 +1,29 @@
-from manim import *
-from manim_presentation import Slide
-from src.designs.themes.CURRENT import APPLIED_THEME
-import src.network_creator.DFA_network as DFA
-from src.designs.layouts.kazut import *
-import src.slide_elements.footer_elements as footer_elements
-
+# Python Imports
 from copy import deepcopy
 
+# Manim Imports
+from manim import *
+from manim_presentation import Slide
+
+# Tool Imports
+import src.DFA_Creator.interface as DFA
+
+# Presentation Imports
+from src.designs.themes.CURRENT import APPLIED_THEME
+from src.designs.layouts.CURRENT import APPLIED_LAYOUT
 
 theme = APPLIED_THEME
+layout = APPLIED_LAYOUT
+
 SLIDE_HEIGHT = 8
 SLIDE_WIDTH = SLIDE_HEIGHT * 16 / 9
-
 
 config.background_color = theme.Background.color
 
 
 class Scene1(Slide):
     def construct(self):
-        page = Kazut_TitledSlide.WithFooter("Ur Mama", 6, 9, True).create()
+        page = layout.TitledSlide.WithFooter("Jahaha moin", 6, 9, with_total=True).create()
         self.add(page)
         self.wait(1)
 
@@ -28,9 +33,9 @@ class Scene1(Slide):
         # self.wait(1)
 
         verts = [
-                DFA.State("A", LEFT * 2),
+                DFA.Start_State("A", LEFT * 2),
                 DFA.State("B", RIGHT * 2 + UP * 2),
-                DFA.State("C", RIGHT * 2 + DOWN * 2),
+                DFA.Accept_State("C", RIGHT * 2 + DOWN * 2),
                 ]
         edges = [
                 DFA.CurvedEdge(verts[0], verts[1], "a"),
