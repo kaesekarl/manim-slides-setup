@@ -116,27 +116,29 @@ class Loop:
 
 
 class Graph_Creator:
-    def __init__(self, vertices: dict, edges: dict, vertex_scale=None):
+    def __init__(self, vertices: list, edges: list, vertex_scale=None):
         self.vertices = vertices
         self.edges = edges
         self.vertex_scale = vertex_scale
 
     def create(self, vertex_scale=None) -> VGroup:
+        if vertex_scale is None:
+            vertex_scale = self.vertex_scale
         graph = VGroup()
-        for vertex in self.vertices.values():
+        for vertex in self.vertices:
             if vertex_scale is not None:
                 graph.add(vertex.node(vertex_scale=vertex_scale))
             else:
                 graph.add(vertex.node())
             graph.add(vertex.label())
-        for edge in self.edges.values():
+        for edge in self.edges:
             graph.add(edge.edge())
             graph.add(edge.label())
         return graph
 
     def create_vertices(self, vertex_scale=None) -> VGroup:
         graph = VGroup()
-        for vertex in self.vertices.values():
+        for vertex in self.vertices:
             if vertex_scale is not None:
                 graph.add(vertex.node(vertex_scale=vertex_scale))
             else:
