@@ -1,3 +1,3 @@
-from src.designs.layouts.kazut import kazut
+import src.designs.layouts.kazut as kazut
 
 APPLIED_LAYOUT = kazut

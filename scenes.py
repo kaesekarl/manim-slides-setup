@@ -6,7 +6,7 @@ from manim import *
 from manim_presentation import Slide
 
 # Tool Imports
-import src.DFA_Creator.interface as DFA
+import src.DFA_Creator as DFA
 
 # Presentation Imports
 from src.designs.themes.CURRENT import APPLIED_THEME
@@ -23,36 +23,29 @@ config.background_color = theme.Background.color
 
 class Scene1(Slide):
     def construct(self):
+
+
         page = layout.TitledSlide.WithFooter("Jahaha moin", 6, 9, with_total=True).create()
         self.add(page)
         self.wait(1)
 
-        # background = Rectangle(width=SLIDE_WIDTH, height=SLIDE_HEIGHT, color=BLACK, fill_opacity=1)
-        # text = Text(r"Ich hab gehört Brüning stinkt nach Maggi", color=WHITE, font="Consolas")
-        # self.play(FadeIn(background), page.animate.scale(1.5), FadeIn(text), run_time=2)
-        # self.wait(1)
+        A = DFA.Start_Accept_State("A", LEFT * 2)       # 0:2
+        B = DFA.State("B", RIGHT * 2 + UP * 2)          # 2:4
+        C = DFA.Accept_State("C", RIGHT * 2 + DOWN * 2) # 4:6
 
-        verts = [
-                DFA.Start_State("A", LEFT * 2),
-                DFA.State("B", RIGHT * 2 + UP * 2),
-                DFA.Accept_State("C", RIGHT * 2 + DOWN * 2),
-                ]
-        edges = [
-                DFA.CurvedEdge(verts[0], verts[1], "a"),
-                DFA.CurvedEdge(verts[1], verts[0], "b"),
-                DFA.Loop(verts[0], "a"),
-                DFA.CurvedEdge(verts[1], verts[2], "a"),
-                DFA.CurvedEdge(verts[2], verts[0], "b"),
-                ]
-        verts1, edges1 = verts[:2], edges[:3]
-        verts2, edges2 = verts[2:], edges[3:]
-        g = DFA.Graph_Creator(verts1, edges1, 0.8).create()
-        g2 = DFA.Graph_Creator(verts2, edges2, 0.8).create()
-        self.play(Create(g))
-        self.play(TransformFromCopy(g, g2))
+        a_b = DFA.CurvedEdge(A, B, "a")     # 6:8
+        b_a = DFA.CurvedEdge(B, A, "b")     # 8:10
+        a_a = DFA.Loop(A, "a")                  # 10:12
+        b_c = DFA.DirectEdge(B, C, "a")     # 12:14
+        c_a = DFA.CurvedEdge(C, A, "b")     # 14:16
 
+        g = DFA.Graph_Creator([A, B, C], [a_b, b_a, a_a, b_c, c_a], 0.8).create()
 
+        g1 = g[0:4] + g[6:12]
+        g2 = g[4:6] + g[12:16]
 
+        self.play(FadeIn(g1))
+        self.play(TransformFromCopy(g1, g2))
         self.wait(1)
 
 

@@ -1,4 +1,4 @@
-from copy import copy
+from copy import deepcopy, copy
 
 from manim import VGroup, Circle, Triangle, Arrow, CurvedArrow, TangentLine, TAU, ORIGIN, UP, LEFT, np
 
@@ -13,6 +13,7 @@ __all__ = [
         "State",
         "Start_State",
         "Accept_State",
+        "Start_Accept_State",
         "DirectEdge",
         "CurvedEdge",
         "Loop",
@@ -36,6 +37,13 @@ class Accept_State(Vertex):
         self.label_color = color
         self.variety = VGroup(Circle(), Circle().scale(0.85))
 
+
+class Start_Accept_State(Vertex):
+    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
+        super().__init__(name, color, variety, position, scale, label_color)
+        self.label_pos = ORIGIN
+        self.label_color = color
+        self.variety = VGroup(Circle(), Triangle(fill_opacity=1).rotate(-0.18).scale(0.15).shift(UP * 0.7 + LEFT * 0.7), Circle().scale(0.85))
 
 
 class State(Vertex):
@@ -130,8 +138,8 @@ class Loop:
 
 class Graph_Creator:
     def __init__(self, vertices: list, edges: list, vertex_scale=None):
-        self.vertices = vertices
-        self.edges = edges
+        self.vertices = copy(vertices)
+        self.edges = copy(edges)
         self.vertex_scale = vertex_scale
 
     def create(self, vertex_scale=None) -> VGroup:

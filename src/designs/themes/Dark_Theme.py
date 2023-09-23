@@ -3,7 +3,12 @@
 from manim.utils.color import *
 from dataclasses import dataclass
 
+# Fonts
+_text_font = "Sans"
+_title_font = "Sans"
 
+
+# Colors
 dark_blue = "#2A2E34"  # ZUT_BLUE_DARK
 light_blue = "#6DADDF"
 tan = "#f3eee1"  # ZUT_TAN
@@ -25,21 +30,21 @@ class DarkTheme:
     class Text:
         color = WHITE
         muted_color = text_muted
-        font = "Sans"
+        font = _text_font
         size = 0.5
         line_spacing = 0.2
 
         @dataclass
         class Title:
             color = WHITE
-            font = "Sans"
+            font = _title_font
             size = 1
             line_spacing = 0.2
 
         @dataclass
         class Bulletpoints:
             color = WHITE
-            font = "Sans"
+            font = _text_font
             size = 0.5
             point_spacing = 0.4
             line_spacing = 0.2
@@ -62,7 +67,7 @@ class DarkTheme:
             @dataclass
             class Title:
                 color = WHITE
-                font = "Sans"
+                font = _title_font
                 size = 0.65
                 line_spacing = 0.2
                 buff = 0.35
@@ -81,7 +86,7 @@ class DarkTheme:
             @dataclass
             class Counter:
                 color = text_muted
-                font = "Sans"
+                font = _text_font
                 size = 0.5
                 weight = "NORMAL"
                 buff = 0.25
@@ -93,17 +98,17 @@ class DarkTheme:
             separator_color = accent_1
 
             title_color = WHITE
-            title_font = "Sans"
+            title_font = _title_font
             title_size = 0.9
             title_weight = "BOLD"
 
             subtitle_color = WHITE
-            subtitle_font = "Sans"
+            subtitle_font = _title_font
             subtitle_size = 0.5
             subtitle_weight = "BOLD"
 
             author_color = text_muted
-            author_font = "Sans"
+            author_font = _text_font
             author_size = 0.33
             author_weight = "BOLD"
 
