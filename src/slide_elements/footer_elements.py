@@ -1,5 +1,5 @@
 from manim import *
-from src.designs.themes.CURRENT import APPLIED_THEME
+from src.designs.themes import APPLIED_THEME
 import src.constants as constants
 
 theme = APPLIED_THEME

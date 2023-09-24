@@ -1,6 +1,6 @@
 from manim import *
 from src.text_elements.Label import TexLabel
-import src.designs.themes.CURRENT as theme
+import src.designs.themes as theme
 from copy import copy
 
 theme = theme.APPLIED_THEME

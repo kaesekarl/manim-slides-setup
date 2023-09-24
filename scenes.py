@@ -9,8 +9,8 @@ from manim_presentation import Slide
 import src.DFA_Creator as DFA
 
 # Presentation Imports
-from src.designs.themes.CURRENT import APPLIED_THEME
-from src.designs.layouts.CURRENT import APPLIED_LAYOUT
+from src.designs.themes import APPLIED_THEME
+from src.designs.layouts import APPLIED_LAYOUT
 
 theme = APPLIED_THEME
 layout = APPLIED_LAYOUT
@@ -23,14 +23,12 @@ config.background_color = theme.Background.color
 
 class Scene1(Slide):
     def construct(self):
-
-
         page = layout.TitledSlide.WithFooter("Jahaha moin", 6, 9, with_total=True).create()
         self.add(page)
         self.wait(1)
 
         A = DFA.Start_Accept_State("A", LEFT * 2)       # 0:2
-        B = DFA.State("B", RIGHT * 2 + UP * 2)          # 2:4
+        B = DFA.State("B", RIGHT * 3.5 + UP * 2)          # 2:4
         C = DFA.Accept_State("C", RIGHT * 2 + DOWN * 2) # 4:6
 
         a_b = DFA.CurvedEdge(A, B, "a")     # 6:8

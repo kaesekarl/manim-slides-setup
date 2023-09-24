@@ -1,4 +1,4 @@
-from src.designs.themes.CURRENT import APPLIED_THEME
+from src.designs.themes import APPLIED_THEME
 from manim import *
 
 theme = APPLIED_THEME

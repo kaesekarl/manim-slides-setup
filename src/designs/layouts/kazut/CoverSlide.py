@@ -1,5 +1,5 @@
 from manim import VGroup, DashedLine, Text, LEFT, UP, DOWN
-from src.designs.themes.CURRENT import APPLIED_THEME
+from src.designs.themes import APPLIED_THEME
 
 _theme = APPLIED_THEME
 

@@ -5,9 +5,9 @@ from manim import VGroup, Circle, Triangle, Arrow, CurvedArrow, TangentLine, TAU
 from src.DFA_Creator.Vertex import Vertex
 from src.DFA_Creator.Edge import Edge, EdgeLabel
 
-import src.designs.themes.CURRENT as current
+import src.designs.themes as CURRENT
 
-theme = current.APPLIED_THEME
+theme = CURRENT.APPLIED_THEME
 
 __all__ = [
         "State",
