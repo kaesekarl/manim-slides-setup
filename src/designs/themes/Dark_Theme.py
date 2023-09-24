@@ -20,6 +20,7 @@ background = dark_blue
 accent_1 = light_blue
 
 
+
 @dataclass
 class DarkTheme:
 
@@ -35,18 +36,29 @@ class DarkTheme:
         line_spacing = 0.2
 
         @dataclass
+        class Lists:
+
+            @dataclass
+            class Bulletpoints:
+                color = WHITE
+                font = _text_font
+                size = 0.5
+                point_spacing = 0.4
+                line_spacing = 0.2
+
+            @dataclass
+            class Numbered:
+                color = WHITE
+                font = _text_font
+                size = 0.5
+                point_spacing = 0.4
+                line_spacing = 0.2
+
+        @dataclass
         class Title:
             color = WHITE
             font = _title_font
             size = 1
-            line_spacing = 0.2
-
-        @dataclass
-        class Bulletpoints:
-            color = WHITE
-            font = _text_font
-            size = 0.5
-            point_spacing = 0.4
             line_spacing = 0.2
 
     @dataclass
@@ -61,8 +73,6 @@ class DarkTheme:
                 color = accent_1
                 buff = 0.8
                 stroke_width = 2
-                # dashed_ratio = 0.5
-                # dash_length = 0.07
 
             @dataclass
             class Title:
@@ -80,8 +90,6 @@ class DarkTheme:
                 color = accent_1
                 buff = 0.8
                 stroke_width = 2
-                # dashed_ratio = 0.5
-                # dash_length = 0.07
 
             @dataclass
             class Counter:

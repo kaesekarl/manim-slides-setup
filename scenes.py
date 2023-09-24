@@ -47,7 +47,11 @@ class Scene1(Slide):
         self.wait(1)
 
 
+class Scene2(Slide):
+    def construct(self):
+        pass
+
 
 with tempconfig({"quality": "high_quality", "preview": True}):
-    scene = Scene1()
+    scene = Scene2()
     scene.render()
