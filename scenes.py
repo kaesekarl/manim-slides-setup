@@ -1,5 +1,6 @@
 # Python Imports
 from copy import deepcopy
+from dataclasses import dataclass
 
 # Manim Imports
 from manim import *
@@ -35,7 +36,7 @@ class Scene1(Slide):
         b_a = DFA.CurvedEdge(B, A, "b")     # 8:10
         a_a = DFA.Loop(A, "a")                  # 10:12
         b_c = DFA.DirectEdge(B, C, "a")     # 12:14
-        c_a = DFA.CurvedEdge(C, A, "b")     # 14:16
+        c_a = DFA.DirectEdge(C, A, "b")     # 14:16
 
         g = DFA.Graph_Creator([A, B, C], [a_b, b_a, a_a, b_c, c_a], 0.8).create()
 
@@ -53,5 +54,5 @@ class Scene2(Slide):
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):
-    scene = Scene2()
+    scene = Scene1()
     scene.render()
