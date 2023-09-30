@@ -51,10 +51,11 @@ class Scene1(Slide):
 class Scene2(Slide):
     def construct(self):
         cover = layout.CoverSlide("Jahaha moin", "Der allerechte Hase", "Das heißt Red").create()
+        self.wait(1)
         self.add(cover)
         self.wait(1)
 
-        self.play(FadeOut(cover))
+        self.remove(cover)
         self.wait(1)
 
 
