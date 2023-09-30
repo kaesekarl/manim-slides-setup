@@ -1,18 +1,18 @@
 from manim import *
 from src.text_elements.Label import TexLabel
-import src.designs.themes as theme
+from src.designs.themes import APPLIED_THEME, FallbackDictWrapper
 from copy import copy
 
-theme = theme.APPLIED_THEME
+theme = FallbackDictWrapper(APPLIED_THEME, "Text")
 
 
 class VertexLabel(TexLabel):
-    def __init__(self, string=None, color=theme.Text.color, font=None, size=None, position=None, shift=ORIGIN):
+    def __init__(self, string=None, color=theme["color"], font=None, size=None, position=None, shift=ORIGIN):
         super().__init__(string, color, font, size, position, shift)
 
 
 class Vertex:
-    def __init__(self, name, color=theme.Text.color, variety=None, position=ORIGIN, scale=1, label_color=theme.Text.color, **kwargs):
+    def __init__(self, name, color=theme["color"], variety=None, position=ORIGIN, scale=1, label_color=theme["color"], **kwargs):
         self.name = name
         self.color = color
         self.position = position

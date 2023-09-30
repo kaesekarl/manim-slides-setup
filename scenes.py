@@ -10,16 +10,16 @@ from manim_presentation import Slide
 import src.DFA_Creator as DFA
 
 # Presentation Imports
-from src.designs.themes import APPLIED_THEME
+from src.designs.themes import APPLIED_THEME, FallbackDictWrapper
 from src.designs.layouts import APPLIED_LAYOUT
 
-theme = APPLIED_THEME
+theme = FallbackDictWrapper(APPLIED_THEME)
 layout = APPLIED_LAYOUT
 
 SLIDE_HEIGHT = 8
 SLIDE_WIDTH = SLIDE_HEIGHT * 16 / 9
 
-config.background_color = theme.Background.color
+config.background_color = theme["Background color"]
 
 
 class Scene1(Slide):
@@ -40,8 +40,8 @@ class Scene1(Slide):
 
         g = DFA.Graph_Creator([A, B, C], [a_b, b_a, a_a, b_c, c_a], 0.8).create()
 
-        g1 = g[0:4] + g[6:12]
-        g2 = g[4:6] + g[12:16]
+        g1 = g[0:4] + g[6:12] # vertices (with labels) + edges (with labels)
+        g2 = g[4:6] + g[12:16] # vertices (with labels) + edges (with labels)
 
         self.play(FadeIn(g1))
         self.play(TransformFromCopy(g1, g2))
@@ -50,9 +50,14 @@ class Scene1(Slide):
 
 class Scene2(Slide):
     def construct(self):
-        pass
+        cover = layout.CoverSlide("Jahaha moin", "Der allerechte Hase", "Das heißt Red").create()
+        self.add(cover)
+        self.wait(1)
+
+        self.play(FadeOut(cover))
+        self.wait(1)
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):
-    scene = Scene1()
+    scene = Scene2()
     scene.render()

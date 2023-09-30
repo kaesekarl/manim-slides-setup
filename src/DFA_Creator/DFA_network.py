@@ -5,9 +5,9 @@ from manim import VGroup, Circle, Triangle, Arrow, CurvedArrow, TangentLine, TAU
 from src.DFA_Creator.Vertex import Vertex
 from src.DFA_Creator.Edge import Edge, EdgeLabel
 
-import src.designs.themes as CURRENT
+from src.designs.themes import APPLIED_THEME, FallbackDictWrapper
 
-theme = CURRENT.APPLIED_THEME
+theme = FallbackDictWrapper(APPLIED_THEME, "Text")
 
 __all__ = [
         "State",
@@ -22,7 +22,7 @@ __all__ = [
 
 
 class Start_State(Vertex):
-    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
+    def __init__(self, name, position=ORIGIN, color=theme["color"], variety=None, scale=1, label_color=None):
         super().__init__(name, color, variety, position, scale, label_color)
         self.label_pos = ORIGIN
         self.label_color = color
@@ -31,7 +31,7 @@ class Start_State(Vertex):
 
 
 class Accept_State(Vertex):
-    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
+    def __init__(self, name, position=ORIGIN, color=theme["color"], variety=None, scale=1, label_color=None):
         super().__init__(name, color, variety, position, scale, label_color)
         self.label_pos = ORIGIN
         self.label_color = color
@@ -39,7 +39,7 @@ class Accept_State(Vertex):
 
 
 class Start_Accept_State(Vertex):
-    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
+    def __init__(self, name, position=ORIGIN, color=theme["color"], variety=None, scale=1, label_color=None):
         super().__init__(name, color, variety, position, scale, label_color)
         self.label_pos = ORIGIN
         self.label_color = color
@@ -47,7 +47,7 @@ class Start_Accept_State(Vertex):
 
 
 class State(Vertex):
-    def __init__(self, name, position=ORIGIN, color=theme.Text.color, variety=None, scale=1, label_color=None):
+    def __init__(self, name, position=ORIGIN, color=theme["color"], variety=None, scale=1, label_color=None):
         super().__init__(name, color, variety, position, scale, label_color)
         self.label_pos = ORIGIN
         self.label_color = color
@@ -55,7 +55,7 @@ class State(Vertex):
 
 
 class DirectEdge(Edge):
-    def __init__(self, start: Vertex, end: Vertex, name: str, color=theme.Text.color):
+    def __init__(self, start: Vertex, end: Vertex, name: str, color=theme["color"]):
         super().__init__(start, end, name, color=color, edge_type=Arrow)
         self.start = start
         self.end = end
@@ -64,7 +64,7 @@ class DirectEdge(Edge):
 
 
 class CurvedEdge(Edge):
-    def __init__(self, start: Vertex, end: Vertex, name: str, arc=TAU/6, color=theme.Text.color):
+    def __init__(self, start: Vertex, end: Vertex, name: str, arc=TAU/6, color=theme["color"]):
         super().__init__(start, end, name, color=color, edge_type=CurvedArrow)
         self.start = start
         self.end = end
@@ -95,7 +95,7 @@ class CurvedEdge(Edge):
 
 
 class Loop:
-    def __init__(self, vertex: Vertex, name: str, color=theme.Text.color, pos=None, arc=TAU/2):
+    def __init__(self, vertex: Vertex, name: str, color=theme["color"], pos=None, arc=TAU/2):
         self.vertex = vertex
         self.name = name
         self.color = color
@@ -137,12 +137,20 @@ class Loop:
 
 
 class Graph_Creator:
+    """
+    Creates a graph from a list of vertices and edges
+    """
     def __init__(self, vertices: list, edges: list, vertex_scale=None):
         self.vertices = copy(vertices)
         self.edges = copy(edges)
         self.vertex_scale = vertex_scale
 
     def create(self, vertex_scale=None) -> VGroup:
+        """
+        Creates an Automata Graph from the vertices and edges specified in the constructor
+        :param vertex_scale: Scale the size of all vertices
+        :return: VGroup containing all vertices and edges as well as their labels
+        """
         if vertex_scale is None:
             vertex_scale = self.vertex_scale
         graph = VGroup()
@@ -158,6 +166,11 @@ class Graph_Creator:
         return graph
 
     def create_vertices(self, vertex_scale=None) -> VGroup:
+        """
+        Creates only the vertices of the graph
+        :param vertex_scale: Scale the size of all vertices
+        :return: VGroup containing all vertices and their labels
+        """
         graph = VGroup()
         for vertex in self.vertices:
             if vertex_scale is not None:

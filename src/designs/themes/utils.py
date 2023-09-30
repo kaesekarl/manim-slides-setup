@@ -6,31 +6,54 @@ class FallbackDictWrapper:
     A wrapper for a dict that allows to access values by a stack of keys.
     Used for the theme-config and wherever else it might be useful.
     """
+
     def __init__(self, dict, default_stack=None):
         self.dict = dict
         self.default_stack = default_stack
 
-    def __getitem__(self, *args):
+    def __getitem__(self, route: str):
         temp_dict = deepcopy(self.dict)
         default_stack = self.default_stack
         ret = None
+        stack = None
+        key = None
 
-        if len(args) == 1:
-            key, stack = args[0], default_stack
+        # Preparing strings into lists for easier handling
+        if default_stack is None:
+            default_stack = []
+        if isinstance(default_stack, str):
+            default_stack = default_stack.split(" ")
+        elif isinstance(default_stack, list):
+            pass
         else:
-            args = list(*args)
-            key, stack = args[-1], list(args[:-1])
-            stack = default_stack + stack
+            raise TypeError(f"Expected str or list, got {type(default_stack)}")
+
+        if isinstance(route, str):
+            stack = route.split(" ")
+        elif isinstance(route, list):
+            stack = route
+        else:
+            raise TypeError(f"Expected str or list, got {type(route)}")
+
+        key, stack = stack[-1], stack[:-1]
+        stack = stack + default_stack
 
         if len(stack) == 0:
-            return self.dict[key]
-        while True:
             if key in temp_dict:
                 ret = temp_dict[key]
-            if len(stack) > 0:
-                temp_dict = temp_dict[stack.pop(0)]
             else:
-                break
-        if ret is None:
-            raise KeyError(f"Key {key} not found in dict {self.dict}")
+                raise KeyError(f"Key {key} not found in {temp_dict}")
+            return ret
+
+        for d in stack:
+            if key in temp_dict:
+                ret = temp_dict[key]
+            if d in temp_dict:
+                temp_dict = temp_dict[d]
+            else:
+                raise KeyError(f"Key {d} not found in {temp_dict}")
+            if key in temp_dict:
+                ret = temp_dict[key]
+
         return ret
+
