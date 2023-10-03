@@ -1,5 +1,5 @@
 from src.DFA_Creator.Vertex import Vertex
-from src.text_elements.Label import TexLabel
+from src.text_elements.label import TexLabel
 from manim import *
 from copy import copy
 

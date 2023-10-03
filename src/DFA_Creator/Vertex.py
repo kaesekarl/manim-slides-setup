@@ -1,5 +1,5 @@
 from manim import *
-from src.text_elements.Label import TexLabel
+from src.text_elements.label import TexLabel
 from src.designs.themes import APPLIED_THEME, FallbackDictWrapper
 from copy import copy
 

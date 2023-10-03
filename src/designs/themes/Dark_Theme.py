@@ -23,11 +23,15 @@ DarkTheme = dict(
     text_font="Sans",
     title_font="Sans",
 
+
     # Colors
     dark_blue="#2A2E34", # same as background
     light_blue="#6DADDF",
     tan="#F3EEE1",
 
+
+    text_color=WHITE,
+    title_color=WHITE,
     # Accents
     accent_1="6DADDF",
 
@@ -53,7 +57,34 @@ DarkTheme = dict(
                 size=1,
                 line_spacing=0.2,
                 ),
-            ),
+        Blocks=dict(
+                text_color=WHITE,
+                header_transparency=0.5,
+                header_size=0.75,
+
+                body_transparency=0.5,
+                body_size=0.5,
+
+                Red=dict(
+                        color="#FF0000",
+                        ),
+                Orange=dict(
+                        color="#FFFF00",
+                        ),
+                Yellow=dict(
+                        color="#00FFFF",
+                        ),
+                Green=dict(
+                        color="#00FF00",
+                        ),
+                Blue=dict(
+                        color="#0000FF",
+                        ),
+                Purple=dict(
+                        color="#FF00FF",
+                        ),
+                    ),
+                ),
     Slide=dict(
         background=background,
 

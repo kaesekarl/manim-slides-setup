@@ -54,11 +54,22 @@ class Scene2(Slide):
         self.wait(1)
         self.add(cover)
         self.wait(1)
-
+        self.pause()
         self.remove(cover)
         self.wait(1)
 
 
+class Scene3(Slide):
+    def construct(self):
+        sl = layout.TitledSlide.WithFooter("Jahaha moin", 6, 9, with_total=True).create()
+        self.add(sl)
+        self.wait(1)
+
+        block = layout.ColorBlock("Title, der diesmal etwas länger ist", "Text, der hier auch mal in \n mehreren Zeilen stattfindet", "#00FF00").create()
+        self.play(FadeIn(block))
+        self.wait(1)
+
+
 with tempconfig({"quality": "high_quality", "preview": True}):
-    scene = Scene2()
+    scene = Scene3()
     scene.render()
