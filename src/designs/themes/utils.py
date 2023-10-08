@@ -57,3 +57,10 @@ class FallbackDictWrapper:
 
         return ret
 
+    def no_default(self):
+        return FallbackDictWrapper(self.dict)
+
+    def set_default(self, default_stack):
+        self.default_stack = default_stack
+        return self
+

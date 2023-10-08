@@ -2,10 +2,13 @@
 # path: src/constants/colors.py
 from manim.utils.color import *
 from dataclasses import dataclass
+from src.text_elements.tex_elements import base_tex_template
 
 # Fonts
 _text_font = "Sans"
 _title_font = "Sans"
+
+
 
 # Colors
 dark_blue = "#2A2E34"  # ZUT_BLUE_DARK
@@ -19,6 +22,10 @@ background = dark_blue
 accent_1 = light_blue
 
 DarkTheme = dict(
+    # Tex Templates
+    Tex_Templates=dict(
+            base=base_tex_template,
+            ),
     # Fonts
     text_font="Sans",
     title_font="Sans",
@@ -85,6 +92,7 @@ DarkTheme = dict(
                         ),
                     ),
                 ),
+
     Slide=dict(
         background=background,
 

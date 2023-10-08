@@ -65,7 +65,8 @@ class Scene3(Slide):
         self.add(sl)
         self.wait(1)
 
-        block = layout.ColorBlock("Title, der diesmal etwas länger ist", "Text, der hier auch mal in \n mehreren Zeilen stattfindet", "#00FF00").create()
+        block = layout.ColorBlock(r"Title, der diesmal etwas länger ist", r"Text, der hier auch mal in \\ mehreren Zeilen stattfindet", "#29cc10",
+                                  ORIGIN).create()
         self.play(FadeIn(block))
         self.wait(1)
 
