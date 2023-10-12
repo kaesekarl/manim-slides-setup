@@ -14,6 +14,8 @@ class ColorBlock:
             self.text_color = theme["text_color"]
         else:
             self.text_color = text_color
+        self.rect_width = theme["rect_width"]
+        self.rect_height = theme["rect_height"]
 
     def create(self):
         elements = VGroup()

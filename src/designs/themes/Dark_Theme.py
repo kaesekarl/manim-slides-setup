@@ -59,39 +59,42 @@ DarkTheme = dict(
                     ),
                 ),
         Title=dict(
-                color=WHITE,
-                font=_title_font,
-                size=1,
-                line_spacing=0.2,
+            color=WHITE,
+            font=_title_font,
+            size=1,
+            line_spacing=0.2,
                 ),
         Blocks=dict(
-                text_color=WHITE,
-                header_transparency=0.5,
-                header_size=0.75,
+            text_color=WHITE,
+            header_transparency=0.5,
+            header_size=0.75,
 
-                body_transparency=0.5,
-                body_size=0.5,
+            body_transparency=0.5,
+            body_size=0.5,
 
-                Red=dict(
-                        color="#FF0000",
-                        ),
-                Orange=dict(
-                        color="#FFFF00",
-                        ),
-                Yellow=dict(
-                        color="#00FFFF",
-                        ),
-                Green=dict(
-                        color="#00FF00",
-                        ),
-                Blue=dict(
-                        color="#0000FF",
-                        ),
-                Purple=dict(
-                        color="#FF00FF",
-                        ),
+            rect_width=5,
+            rect_height=1.5,
+
+            Red=dict(
+                color="#FF0000",
+                    ),
+            Orange=dict(
+                color="#FFFF00",
+                    ),
+            Yellow=dict(
+                color="#00FFFF",
+                    ),
+            Green=dict(
+                color="#00FF00",
+                    ),
+            Blue=dict(
+                color="#0000FF",
+                    ),
+            Purple=dict(
+                color="#FF00FF",
                     ),
                 ),
+            ),
 
     Slide=dict(
         background=background,
