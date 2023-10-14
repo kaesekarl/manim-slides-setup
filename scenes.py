@@ -65,10 +65,27 @@ class Scene3(Slide):
         self.add(sl)
         self.wait(1)
 
-        block = layout.ColorBlock(r"Title, der diesmal etwas länger ist", r"Text, der hier auch mal in \\ mehreren Zeilen stattfindet", "#29cc10",
-                                  ORIGIN).create()
-        self.play(FadeIn(block))
+        title = r"Title, der diesmal etwas länger ist"
+        text = r"Text, der hier auch mal in mehreren Zeilen stattfindet Text, der hier auch mal in mehreren Zeilen stattfindet Text, " \
+                r"der hier auch mal in mehreren Zeilen stattfindet Text, der hier auch mal in mehreren Zeilen stattfindet Text, " \
+                r"der hier auch mal in mehreren Zeilen stattfindet Text, der hier auch mal in mehreren Zeilen stattfindet Text "
+
+        block_list = ([layout.Red_ColorBlock, layout.Orange_ColorBlock, layout.Yellow_ColorBlock, layout.Green_ColorBlock, layout.Cyan_ColorBlock,
+                       layout.Blue_ColorBlock,
+                      layout.Purple_ColorBlock])
+        blocks = [b(title, text, ORIGIN).create() for b in block_list]
+
+        for b in blocks:
+            self.play(FadeIn(b))
+            self.wait(1)
+            self.play(FadeOut(b))
+
         self.wait(1)
+
+
+class Scene4(Slide):
+    def construct(self):
+        pass
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):

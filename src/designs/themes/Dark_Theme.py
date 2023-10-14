@@ -66,11 +66,15 @@ DarkTheme = dict(
                 ),
         Blocks=dict(
             text_color=WHITE,
-            header_transparency=0.5,
-            header_size=0.75,
+            size=0.8,
 
-            body_transparency=0.5,
-            body_size=0.5,
+            header_opacity=0.5,
+            body_opacity=0.0,
+            block_opacity=0.15,
+
+            header_stroke_opacity=0.8,
+            body_stroke_opacity=0.0,
+            block_stroke_opacity=0.8,
 
             rect_width=5,
             rect_height=1.5,
@@ -79,13 +83,16 @@ DarkTheme = dict(
                 color="#FF0000",
                     ),
             Orange=dict(
-                color="#FFFF00",
+                color="#FFA500",
                     ),
             Yellow=dict(
-                color="#00FFFF",
+                color="#FFFF00",
                     ),
             Green=dict(
-                color="#00FF00",
+                color="#29cc10",
+                    ),
+            Cyan=dict(
+                color="#00FFFF",
                     ),
             Blue=dict(
                 color="#0000FF",

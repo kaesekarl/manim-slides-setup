@@ -6,14 +6,10 @@ base_tex_template.add_to_preamble(
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
-"""
-        )
-base_tex_template.add_to_preamble(
-        r"""
 \usepackage[T1]{fontenc}
 \usepackage{avant}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[symbolgreek,defaultmathsizes]{mathastext}
+\setlength{\parindent}{0pt}
 """,
         )
-base_tex_template.add_to_preamble(r"\setlength{\parindent}{0pt}")

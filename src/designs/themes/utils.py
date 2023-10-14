@@ -36,7 +36,7 @@ class FallbackDictWrapper:
             raise TypeError(f"Expected str or list, got {type(route)}")
 
         key, stack = stack[-1], stack[:-1]
-        stack = stack + default_stack
+        stack = default_stack + stack
 
         if len(stack) == 0:
             if key in temp_dict:
