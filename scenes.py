@@ -75,11 +75,10 @@ class Scene3(Slide):
                       layout.Purple_ColorBlock])
         blocks = [b(title, text, ORIGIN).create() for b in block_list]
 
-        for b in blocks:
-            self.play(FadeIn(b))
+        self.play(FadeIn(blocks[0]))
+        for i in range(1, len(blocks)):
+            self.play(blocks[i - 1].animate.shift(LEFT).fade(1), FadeIn(blocks[i]))
             self.wait(1)
-            self.play(FadeOut(b))
-
         self.wait(1)
 
 
