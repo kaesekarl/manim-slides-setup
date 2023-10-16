@@ -70,23 +70,24 @@ class Scene3(Slide):
                 r"der hier auch mal in mehreren Zeilen stattfindet Text, der hier auch mal in mehreren Zeilen stattfindet Text, " \
                 r"der hier auch mal in mehreren Zeilen stattfindet Text, der hier auch mal in mehreren Zeilen stattfindet Text "
 
-        block_list = ([layout.Red_ColorBlock, layout.Orange_ColorBlock, layout.Yellow_ColorBlock, layout.Green_ColorBlock, layout.Cyan_ColorBlock,
-                       layout.Blue_ColorBlock,
-                      layout.Purple_ColorBlock])
-        blocks = [b(title, text, ORIGIN).create() for b in block_list]
-
-        self.play(FadeIn(blocks[0]))
-        for i in range(1, len(blocks)):
-            self.play(blocks[i - 1].animate.shift(LEFT).fade(1), FadeIn(blocks[i]))
-            self.wait(1)
         self.wait(1)
 
 
 class Scene4(Slide):
     def construct(self):
-        pass
+        sl = layout.TitledSlide.WithFooter("Jahaha moin", 6, 9, with_total=True).create()
+        def_block = layout.Text_Blocks.Cyan_ColorBlock(r"Definition: $\mathbb{N}$", r"Hier kommt eine Definition von $$\sum^n_{i=0} i = \frac{n (n+1)}{2}$$ "
+                                                                                    r"hin", ORIGIN).create()
+        self.add(def_block, sl)
+        self.wait()
+        self.play(sl.animate.set_opacity(0).scale(1.3), FadeOut(def_block))
+
+        l = layout.Numbered_List_Creator("Bulletpoint 1", "Bulletpoint 2", "Bulletpoint 3").create()
+
+        self.play(Write(l), sl.animate.set_opacity(1).scale(1/1.3))
+        self.wait(1)
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):
-    scene = Scene3()
+    scene = Scene4()
     scene.render()
