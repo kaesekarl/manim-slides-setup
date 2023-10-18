@@ -43,8 +43,8 @@ class Scene1(Slide):
         g1 = g[0:4] + g[6:12] # vertices (with labels) + edges (with labels)
         g2 = g[4:6] + g[12:16] # vertices (with labels) + edges (with labels)
 
-        self.play(FadeIn(g1))
-        self.play(TransformFromCopy(g1, g2))
+        self.play(FadeIn(g))
+        # self.play(TransformFromCopy(g1, g2))
         self.wait(1)
 
 
@@ -80,12 +80,14 @@ class Scene4(Slide):
                                                                                     r"hin", ORIGIN).create()
         self.add(def_block, sl)
         self.wait()
-        self.play(sl.animate.set_opacity(0).scale(1.3), FadeOut(def_block))
+        self.play(layout.Vanish(sl), FadeOut(def_block))
 
         l = layout.Numbered_List_Creator("Bulletpoint 1", "Bulletpoint 2", "Bulletpoint 3").create()
 
-        self.play(Write(l), sl.animate.set_opacity(1).scale(1/1.3))
+        self.play(Write(l), layout.UnVanish(sl))
         self.wait(1)
+
+
 
 
 with tempconfig({"quality": "high_quality", "preview": True}):
