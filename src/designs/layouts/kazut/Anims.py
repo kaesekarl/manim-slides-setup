@@ -11,7 +11,10 @@ class Vanish(Animation):
         super().__init__(mobject, **kwargs)
 
     def interpolate_mobject(self, alpha):
-        self.mobject.set_opacity(1 - alpha).scale(1 + 0.3*alpha)
+        temp = self.mobject.copy()
+        temp.set_opacity(1-alpha)
+        temp.scale(1 + 0.7*alpha)
+        return temp
 
 
 class UnVanish(Animation):
@@ -19,7 +22,10 @@ class UnVanish(Animation):
         super().__init__(mobject, **kwargs)
 
     def interpolate_mobject(self, alpha):
-        self.mobject.set_opacity(alpha).scale(1 - (1/1.3 * alpha))
+        temp = self.mobject.copy()
+        temp.set_opacity(alpha)
+        temp.scale(1/(1 + 0.7*alpha))
+        return temp
 
 
 

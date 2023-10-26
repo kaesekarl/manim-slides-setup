@@ -8,6 +8,7 @@ from manim_presentation import Slide
 
 # Tool Imports
 import src.DFA_Creator as DFA
+from src.utils.display_grid import Grid_Helper
 
 # Presentation Imports
 from src.designs.themes import APPLIED_THEME, FallbackDictWrapper
@@ -80,11 +81,17 @@ class Scene4(Slide):
                                                                                     r"hin", ORIGIN).create()
         self.add(def_block, sl)
         self.wait()
-        self.play(layout.Vanish(sl), FadeOut(def_block))
+        self.play(layout.Vanish(sl))
 
         l = layout.Numbered_List_Creator("Bulletpoint 1", "Bulletpoint 2", "Bulletpoint 3").create()
 
         self.play(Write(l), layout.UnVanish(sl))
+        self.wait(1)
+
+
+class Scene5(Slide):
+    def construct(self):
+        self.add(Grid_Helper().grid)
         self.wait(1)
 
 
